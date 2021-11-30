@@ -1,0 +1,29 @@
+1.Listázza ki az összes gyógyszer nevét!
+SELECT Név FROM Gyógyszer;
+
+2.Listázza ki minden vásárló minden adatát!
+SELECT* FROM Vásárló;
+
+3.Listázza ki az összes vény nélkül kapható gyógyszert!
+SELECT* FROM Gyógyszer WHERE Receptre_kapható=’nem’;
+
+4.Listázza ki a hasmenéssel küzdő emberek telefonszámait!
+SELECT Telszám FROM Betegség WHERE Panasz=’hasmenés’;
+
+5.Adja meg a gyógyszertárban átlagosan elköltött összeget!
+SELECT AVG(Összeg) FROM Gyógyszertár;
+
+6.Listázza ki az összes vásárló nevét és telefonszámát, akinek Dr.Mann László volt a háziorvosa!
+SELECT Név, Telszám FROM Vásárló WHERE Háziorvos=’Dr.Mann László’;
+
+7.Listázza ki azon vásárlók adatait, akiknek a telefonszáma 0630-al kezdődik!
+SELECT* FROM Vásárló WHERE Telszám LIKE ’0630%’;
+
+8.Listázza ki azokat a vásárlókat, akik a ceclorra érzékenyek és fejfájás gyötri őket!
+SELECT* FROM Vásárló INNER JOIN Betegség ON Gyógyszerérzékenység=’ceclor’ WHERE Panasz=’fejfájás’;
+
+9.Listázza ki az összes gyógyszer adatát, amelyek ID-je nagyobb mint a köptető gyógyszerek ID-je!
+SELECT* FROM Gyógyszer WHERE ID>ALL(SELECT ID FROM Gyógyszer WHERE Típus='köptető');
+
+10.Listázza ki az egri gyógyszertárakat e-mail cím szerint rendezve!
+SELECT* FROM Gyógyszertár WHERE Cím LIKE 'Eger,%' GROUP BY Elérhetőség;

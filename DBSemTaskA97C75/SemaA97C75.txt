@@ -1,0 +1,6 @@
+Raktár[ID, Utca, Irányítószám, Házszám, Város, Név]
+Gyógyszertár[Elérhetőség, Név, Cím, ID(FK), Telszám(FK)]
+Vásárlás[Telszám(FK), Összeg, Fizetési_mód, Számla]
+Vásárló[Telszám, Név, Háziorvos, Gyógyszerérzékenység]
+Betegség[Telszám(FK), ID(FK), Panasz]
+Gyógyszer[ID, Név, Hatóanyag, Típus, Receptre_kapható]

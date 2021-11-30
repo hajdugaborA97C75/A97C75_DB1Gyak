@@ -1,0 +1,35 @@
+Insert into Raktár values(1287110884, 3300, ‘Eger‘, ‘Kistályai út’, 33, ‘King‘);
+Insert into Raktár values(1287110885, 3373, ‘Besenyőtelek‘, Fő út’, 10, ‘Storage‘);
+Insert into Raktár values(1287110886, 3300, ‘Eger‘, ‘Kistályai út’, 40, ‘Storage‘);
+Insert into Raktár values(1287110887, 3350, ‘Kál‘, ‘Fő út alsó’, 23, ‘Gipsy‘);
+Insert into Raktár values(1287110888, 3300, ‘Eger‘, ‘Kistályai út’, 347, ‘Bosch‘);
+
+Insert into Vásárló values(06302203763, ‘Kiss Andor‘, ‘Dr.Mann László’, ‘-‘);
+Insert into Vásárló values(06204206463, ‘Áy Péter‘, ‘Dr.Kovács Zsolt’, ‘ceclor‘);
+Insert into Vásárló values(06302203222, ‘Kiss Péter‘, ‘Dr.Mann László’, ‘-‘);
+Insert into Vásárló values(06803344443, ‘Kiss Máté‘, ‘Dr.Mann László’, ‘ceclor‘);
+Insert into Vásárló values(06312343973, ‘Jakab Andrea‘, ‘Dr.Petőfi Sándor’, ‘-‘);
+
+Insert into Gyógyszer values(2340222456, ‘Panadol Extra‘, ‘paracetamol’, ‘fájdalomcsillapító‘, ‘nem‘);
+Insert into Gyógyszer values(2343452987, ‘Prostamol Uno‘, ‘serenoa’, ‘prosztata gyógyszer‘, ‘nem‘);
+Insert into Gyógyszer values(1234567890, ‘Cataflam‘, ‘diflofenac’, ‘fájdalomcsillapító‘, ‘igen‘);
+Insert into Gyógyszer values(1637485961, ‘Fluimucil‘, ‘acetylcysteine’, ‘köptető‘, ‘nem‘);
+Insert into Gyógyszer values(6593163465, ‘Imodium‘, ‘loperamide’, ‘hasmenés elleni‘, ‘nem‘);
+
+Insert into Vásárlás values(06302203763, 5500, ‘Bankkártya‘, ‘nem’);
+Insert into Vásárlás values(06204206463, 15500, ‘Bankkártya‘, ‘igen’);
+Insert into Vásárlás values(06302203222, 500, ‘Készpénz‘, ‘igen’);
+Insert into Vásárlás values(06803344443, 3500, ‘Bankkártya‘, ‘nem’);
+Insert into Vásárlás values(06312343973, 55500, ‘Készpénz‘, ‘igen’);
+
+Insert into Betegség values(06302203763, 2340222456, ‘Hasmenés‘);
+Insert into Betegség values(06204206463, 2343452987, ‘Fejfájás‘);
+Insert into Betegség values(06302203222, 1234567890, ‘Nem kívánt terhesség‘);
+Insert into Betegség values(06803344443, 1637485961, ‘Görcs‘);
+Insert into Betegség values(06312343973, 6593163465, ‘Hasmenés‘);
+
+Insert into Gyógyszertár values(06302203763, 1287110884, ‘gyongy@gmail.com‘, ‘Gyöngy‘, ‘Eger, Kistályai út 3’);
+Insert into Gyógyszertár values(06204206463, 1287110885, ‘kigyo@gmail.com‘, ‘Kígyó‘, ‘Eger, Széchenyi út 5’);
+Insert into Gyógyszertár values(06302203222, 1287110886, ‘benu@citromail.hu‘, ‘Benu‘, ‘Eger, Maklári út 12’);
+Insert into Gyógyszertár values(06803344443, 1287110887, ‘alma@gmail.com‘, ‘Alma‘, ‘Berettyóújfalu, Kiss út 6’);
+Insert into Gyógyszertár values(06312343973, 1287110888, ‘granat@gmail.com‘, ‘Gránát‘, ‘Tordanádaska, Fő út 22’);

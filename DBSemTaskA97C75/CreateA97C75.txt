@@ -1,0 +1,11 @@
+Create table Raktár ( ID char(10) primary key not null, Irányítószám number(4) not null, Város char(15), Utca char(20), Házszám number(3) not null, Név char(30));
+
+Create table Vásárló ( Telszám char(11) primary key not null, Név char(30), Háziorvos char(30), Gyógyszerérzékenység char(20));
+
+Create table Gyógyszer ( ID char(10) primary key not null, Név char(30), Hatóanyag char(15), Típus char(25), Receptre_kapható char(4));
+
+Create table Vásárlás ( Telszám number(11) primary key not null, Összeg number(6), Fizetési_mód char(15),Számla char(4), foreign key(Telszám) references Vásárló(Telszám));
+
+Create table Betegség ( Telszám number(11) primary key not null, ID number(10) primary key not null, Panasz char(15), foreign key(Telszám) references Vásárló(Telszám), foreign key(ID) references Gyógyszer(ID));
+
+Create table Gyógyszertár ( Telszám number(11) primary key not null, ID number(10) primary key not null, Elérhetőség char(15), Név char(20), Cím char(45), foreign key(ID) references Raktár(ID), foreign key(Telszám) references Vásárlás(Telszám));
