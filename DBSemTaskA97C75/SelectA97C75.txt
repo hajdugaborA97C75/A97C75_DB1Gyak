@@ -1,29 +1,40 @@
 1.Listázza ki az összes gyógyszer nevét!
 SELECT Név FROM Gyógyszer;
+πNév (Gyógyszer)
 
 2.Listázza ki minden vásárló minden adatát!
 SELECT* FROM Vásárló;
+πTelszám, Név, Háziorvos, Gyógyszerérzékenység (Vásárló)
 
 3.Listázza ki az összes vény nélkül kapható gyógyszert!
-SELECT* FROM Gyógyszer WHERE Receptre_kapható=’nem’;
+SELECT* FROM Gyógyszer WHERE Receptre_kapható='nem';
+π ID, Név, Hatóanyag, Típus, Receptre_kapható σReceptre_kapható=nem (Gyógyszer)
 
 4.Listázza ki a hasmenéssel küzdő emberek telefonszámait!
-SELECT Telszám FROM Betegség WHERE Panasz=’hasmenés’;
+SELECT Telszám FROM Betegség WHERE Panasz='Hasmenés';
+π Telszám σPanasz=Hasmenés (Betegség)
 
-5.Adja meg a gyógyszertárban átlagosan elköltött összeget!
-SELECT AVG(Összeg) FROM Gyógyszertár;
+5.Adja meg a bankkártyás vásárlások átlagos összegét!
+SELECT AVG(Összeg) FROM Vásárlás WHERE Fizetési_mód='Bankkártya';
+ΓAVG(Összeg) σFizetési_mód=Bankkártya (Vásárlás)
 
 6.Listázza ki az összes vásárló nevét és telefonszámát, akinek Dr.Mann László volt a háziorvosa!
-SELECT Név, Telszám FROM Vásárló WHERE Háziorvos=’Dr.Mann László’;
+SELECT Név, Telszám FROM Vásárló WHERE Háziorvos='Dr.Mann László';
+π Név, Telszám σHáziorvos=Dr.Mann László (Vásárló)
 
-7.Listázza ki azon vásárlók adatait, akiknek a telefonszáma 0630-al kezdődik!
-SELECT* FROM Vásárló WHERE Telszám LIKE ’0630%’;
+7.Számolja meg, hány darab raktár található Besenyőtelken!
+SELECT COUNT(Város) FROM Raktár WHERE Város='Besenyőtelek';
+ΓCOUNT(Város) σVáros=Besenyőtelek (Raktár)
 
-8.Listázza ki azokat a vásárlókat, akik a ceclorra érzékenyek és fejfájás gyötri őket!
-SELECT* FROM Vásárló INNER JOIN Betegség ON Gyógyszerérzékenység=’ceclor’ WHERE Panasz=’fejfájás’;
+8.Listázza ki azon betegek nevét, háziorvosát, gyógyszerérzékenységét és ID-jét, akik érzékenyek a ceclorra!
+SELECT Név, Háziorvos, Gyógyszerérzékenység, ID FROM Vásárló INNER JOIN Betegség ON Vásárló.Telszám=Betegség.Telszám WHERE Gyógyszerérzékenység='ceclor';
+π Név, Háziorvos, Gyógyszerérzékenység, ID (σGyógyszerérzékenység=ceclor(Vásárló ⋈Vásárló.Telszám=Betegség.Telszám Betegség))
 
 9.Listázza ki az összes gyógyszer adatát, amelyek ID-je nagyobb mint a köptető gyógyszerek ID-je!
 SELECT* FROM Gyógyszer WHERE ID>ALL(SELECT ID FROM Gyógyszer WHERE Típus='köptető');
+π ID, Név, Hatóanyag, Típus, Receptre_kapható σ ID>(Π ID(σ Típus=’köptető’ Gyógyszer))
 
-10.Listázza ki az egri gyógyszertárakat e-mail cím szerint rendezve!
-SELECT* FROM Gyógyszertár WHERE Cím LIKE 'Eger,%' GROUP BY Elérhetőség;
+10.Listázza ki az egri gyógyszertárakat ID szerint rendezve!
+SELECT* FROM Gyógyszertár WHERE Cím LIKE 'Eger,%' ORDER BY ID;
+π Telszám, ID, Elérhetőség, Név, Cím σCím=Eger% ГID (Betegség)
+
